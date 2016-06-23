@@ -1,10 +1,14 @@
 #.bash_profile configuration
 
 alias ll='ls -al'
-alias start_mongo='boxen --enable-service mongodb'
-alias stop_mongo='boxen --disable-service mongodb'
 
 M2_HOME=/Users/$USER/Development/tools/apache-maven-3.1.1
+
+MONGODB_HOME=/usr/local/Cellar/mongodb/3.2.5
+
+export MONGODB_HOME=$MONGODB_HOME
+
+MONGODB_DATA=/Users/davidcunningham/data/mongodb
 
 export M2=$M2_HOME/bin
 
@@ -14,14 +18,20 @@ export MAVEN_OPTS="-Djavax.net.ssl.trustStore=/Users/$USER/Development/tools/col
 
 JAVA7_HOME=/Library/Java/JavaVirtualMachines/jdk1.7.0_71.jdk/Contents/Home
 
-export JAVA_HOME=$JAVA7_HOME
+JAVA8_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_74.jdk/Contents/Home
+
+export JAVA_HOME=$JAVA8_HOME
 
 GRAILS_HOME=/Users/$USER/Development/tools/grails-2.4.3
 
 export GRAILS_HOME=$GRAILS_HOME
 
-PATH=$M2:$ANDROID_HOME/bin:$JAVA_HOME/bin:$GRAILS_HOME/bin:$PATH
+PATH=$M2:$ANDROID_HOME/bin:$JAVA_HOME/bin:$GRAILS_HOME/bin:$MONGODB_HOME/bin:$PATH
 
 export PATH=/usr/local/bin:$PATH
 
-source /opt/boxen/env.sh
+alias start_mongo='mongod --dbpath $MONGODB_DATA'
+alias stop_mongo='mongod --shutdown'
+
+# export secret key environment variables
+source .secretkeys
