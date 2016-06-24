@@ -34,4 +34,4 @@ alias start_mongo='mongod --dbpath $MONGODB_DATA'
 alias stop_mongo='mongod --shutdown'
 
 # export secret key environment variables
-source .secretkeys
+source .secrets
