@@ -3,4 +3,10 @@ tap 'caskroom/cask'
 #tap homebrew/versions
 brew 'git'
 brew 'git-flow'
-brew 'node
+brew 'node'
+brew 'gradle'
+brew 'mongodb'
+brew 'ansible'
+cask 'java'
+cask 'mongohub'
+cask 'vagrant'
