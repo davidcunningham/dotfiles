@@ -1,7 +1,11 @@
 autoload -Uz compinit
 compinit
 
+export VALUES_FILE=/Users/dcunningham/src/insipher/tenants/tenants/aws/david/values.yaml
+
 alias ll='ls -al'
+
+export TERRAGRUNT_IAM_ROLE=arn:aws:iam::587393751500:role/insipher-master
 
 export PATH=$HOME/.gem/ruby/2.3.0/bin:$PATH:$HOME/Library/Python/2.7/bin
 
@@ -44,13 +48,14 @@ export TERRAGRUNT=$HOME/bin/terragrunt
 export K9S=$HOME/bin/k9s
 export KUBECTX=$HOME/bin/kubectx
 export KUBENS=$HOME/bin/kubens
-export VALERO=$HOME/bin/valero
+export VELERO=$HOME/bin/velero
+export SONARQUBE=$HOME/bin/sonar-scanner-4.6.2.2472-macosx/bin
 
 #EKSCTL setup
 export EKSCTL=$HOME/bin/eksctl
 fpath=($fpath ~/.zsh/completion)
 
-export PATH=$PATH:$SWAG:$SKAFFOLD:$PRESTO:$KUBEFWD:$HELM:$EKSCTL:$TERRAFORM:$TERRAGRUNT:$K9S:$KUBECTX:$KUBENS:$VALERO
+export PATH=$PATH:$SWAG:$SKAFFOLD:$PRESTO:$KUBEFWD:$HELM:$EKSCTL:$TERRAFORM:$TERRAGRUNT:$K9S:$KUBECTX:$KUBENS:$VELERO:$SONARQUBE
 
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /Users/dcunningham/bin/terraform/terraform terraform
